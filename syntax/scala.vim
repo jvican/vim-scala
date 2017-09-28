@@ -82,7 +82,7 @@ hi link scalaNameDefinition Function
 syn match scalaInstanceDeclaration /\<[_\.A-Za-z0-9$]\+\>/ contained nextgroup=scalaInstanceHash
 syn match scalaInstanceDeclaration /`[^`]\+`/ contained
 syn match scalaInstanceHash /#/ contained nextgroup=scalaInstanceDeclaration
-hi link scalaInstanceDeclaration Special
+hi link scalaInstanceDeclaration TypeDef
 hi link scalaInstanceHash Type
 
 syn match scalaUnimplemented /???/
