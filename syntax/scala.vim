@@ -42,7 +42,8 @@ syn keyword scalaKeyword match return throw try while yield macro
 syn keyword scalaKeyword class trait object extends with nextgroup=scalaInstanceDeclaration skipwhite
 syn keyword scalaKeyword case nextgroup=scalaKeyword,scalaCaseFollowing skipwhite
 syn keyword scalaKeyword val nextgroup=scalaNameDefinition,scalaQuasiQuotes skipwhite
-syn keyword scalaKeyword def var nextgroup=scalaNameDefinition skipwhite
+syn keyword scalaKeyword var nextgroup=scalaNameDefinition skipwhite
+syn keyword scalaKeyword def nextgroup=scalaMethodDefinition skipwhite
 hi link scalaKeyword Keyword
 
 exe 'syn region scalaBlock start=/{/ end=/}/ contains=' . s:ContainedGroup() . ' fold'
@@ -72,6 +73,10 @@ hi link scalaUnicodeChar Special
 syn match scalaOperator "||"
 syn match scalaOperator "&&"
 hi link scalaOperator Special
+
+syn match scalaMethodDefinition /\<[_A-Za-z0-9$]\+\>/ contained nextgroup=scalaPostNameDefinition
+syn match scalaMethodDefinition /`[^`]\+`/ contained nextgroup=scalaPostNameDefinition
+hi link scalaMethodDefinition FunctionDef
 
 syn match scalaNameDefinition /\<[_A-Za-z0-9$]\+\>/ contained nextgroup=scalaPostNameDefinition,scalaVariableDeclarationList
 syn match scalaNameDefinition /`[^`]\+`/ contained nextgroup=scalaPostNameDefinition
